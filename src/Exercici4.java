@@ -10,7 +10,7 @@ public class Exercici4 {
         int tronc = 30;
         int girFulla =130;
 
-
+        //t.setDelay(300);
 
         dibuixaTronc(t,numFulles,longitutFulla,tronc);
         dibuixarFullaDreta(t ,numFulles,longitutFulla,girFulla);
@@ -28,19 +28,22 @@ public class Exercici4 {
         t.setPenDown(true);
 
         t.forward(longCap);
-        //t.markCursor();
+
+        t.markCursor();
     }
 
     private static void dibuixarFullaEsq(Turtle t, int numFulles, int longitutFulla, int girFulla) {
         t.goTo(0,30);
         t.turnRight(400);
-
+        t.turnLeft(90);
         for (int d =0;d <=numFulles;d++) {
-            t.turnLeft(90);
+
             t.forward(longitutFulla);
             t.turnRight(girFulla);
             t.forward(60);
-            t.turnLeft(90);
+            t.turnLeft(girFulla);
+            //t.forward(60);
+            //t.turnLeft(90);
 
 
         }

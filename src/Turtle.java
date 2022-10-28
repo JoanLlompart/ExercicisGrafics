@@ -7,11 +7,14 @@ import java.util.List;
 
 /**
  * Created by pnegre
+
  Exemple:
+
  // Create Turtle object
  Turtle t = new Turtle(500,500);
+
  // Movements
- t.goTo(-100,-100); primer numero direccio(x), segon numero altura(y)
+ t.goTo(-100,-100);
  t.forward(200);
  t.turnRight(90);
  t.forward(200);
@@ -19,10 +22,13 @@ import java.util.List;
  t.forward(200);
  t.turnRight(90);
  t.forward(200);
+
  // Show cursor
  t.markCursor();
+
  // Show canvas
  t.show();
+
  */
 
 public class Turtle {
@@ -34,6 +40,11 @@ public class Turtle {
     private Color color = Color.BLACK;
     private static int thickness = 1;
     private boolean penDown = true;
+    private int delay = 0;
+
+    public void setDelay(int delay) {
+        this.delay = delay;
+    }
 
     public enum Color {
         BLACK, RED, YELLOW, BLUE
@@ -54,13 +65,21 @@ public class Turtle {
 
     private static class MyPanel extends JPanel {
         List<Line> lineList = new ArrayList<Line>();
+        int step = 0;
+
+        java.awt.Color redColor =  new java.awt.Color(255,0,0);
+        java.awt.Color blackColor =  new java.awt.Color(0,0,0);
+        java.awt.Color yellowColor =  new java.awt.Color(255, 253, 0);
+        java.awt.Color blueColor =  new java.awt.Color(0, 93, 250);
 
         public void paintComponent(Graphics g) {
+            super.paintComponent(g);
             Graphics2D g2 = (Graphics2D) g;
             g2.setStroke(new BasicStroke(thickness));
 
             if (lineList != null)
-                for (Line l : lineList) {
+                for(int i=0; i<step; i++) {
+                    Line l = lineList.get(i);
                     if (l.visible) {
                         drawLine(g2, l.x1, l.y1, l.x2, l.y2, l.color);
                     }
@@ -76,12 +95,24 @@ public class Turtle {
 
         private java.awt.Color getColor(Color color) {
             switch(color) {
-                case RED: return new java.awt.Color(255,0,0);
-                case BLACK: return new java.awt.Color(0,0,0);
-                case YELLOW: return new java.awt.Color(255, 253, 0 );
-                case BLUE: return new java.awt.Color(0, 93, 250);
+                case RED: return redColor;
+                case BLACK: return blackColor;
+                case YELLOW: return yellowColor;
+                case BLUE: return blueColor;
             }
             throw new RuntimeException("Color not valid");
+        }
+
+        public boolean doStep() {
+            if (step < lineList.size()) {
+                step++;
+                return false;
+            }
+            return true;
+        }
+
+        public void allSteps() {
+            step = lineList.size();
         }
     }
 
@@ -139,6 +170,28 @@ public class Turtle {
     public void show() {
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
+
+        if (delay > 0) {
+            Timer timer = new Timer(0, null);
+            timer.setDelay(delay);
+            timer.addActionListener(e -> {
+                boolean done = frame.panel.doStep();
+
+                //frame.invalidate();
+                //frame.validate();
+                frame.repaint();
+                //frame.revalidate();
+                if (done) {
+                    timer.stop();
+                }
+            });
+            timer.start();
+        } else {
+            frame.panel.allSteps();
+            frame.invalidate();
+            frame.validate();
+            frame.repaint();
+        }
     }
 
     public void markCursor() {
