@@ -7,12 +7,9 @@ import java.util.List;
 
 /**
  * Created by pnegre
-
  Exemple:
-
  // Create Turtle object
  Turtle t = new Turtle(500,500);
-
  // Movements
  t.goTo(-100,-100); primer numero direccio(x), segon numero altura(y)
  t.forward(200);
@@ -22,13 +19,10 @@ import java.util.List;
  t.forward(200);
  t.turnRight(90);
  t.forward(200);
-
  // Show cursor
  t.markCursor();
-
  // Show canvas
  t.show();
-
  */
 
 public class Turtle {

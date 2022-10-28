@@ -8,7 +8,6 @@ public class Exercici2 {
         int tVerticals = 50;
         int tHorizontals = 30;
 
-
             //dibuixaEscalo(t,tVerticals,tHorizontals,escalons);
             baixaEscalo(t,tVerticals,tHorizontals,escalons);
             lineaRecta(t);
@@ -16,7 +15,6 @@ public class Exercici2 {
 
         t.show();
     }
-
     private static void pujaEscalo(Turtle t,int tVerticals,int tHoritzontals,int escalons) {
         t.turnLeft(90);
 
@@ -25,11 +23,7 @@ public class Exercici2 {
             t.turnRight(90);
             t.forward(tHoritzontals);
             t.turnLeft(90);
-
-
         }
-
-
     }
 
     private static void lineaRecta(Turtle t) {
@@ -44,13 +38,6 @@ public class Exercici2 {
             //t.markCursor();
             t.forward(tVerticals);
             t.turnLeft(90);
-
-
-
-
-
         }
-
-
     }
 }
