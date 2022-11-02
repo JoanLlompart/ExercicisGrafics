@@ -1,11 +1,10 @@
-public class Exercici8 {
+public class Estrella {
     public static void main(String[] args) {
         Turtle t = new Turtle(800,600);
         //8- Dibuixa el següent gràfic.
         int longTriangle = 100;
         int angleGir = 120;
         int numTriangles =5;
-        t.setDelay(300);
 
         for (int i = 0;i<= numTriangles;i++) {
             dibuixaTriangle(t, longTriangle, angleGir);
@@ -51,3 +50,5 @@ public class Exercici8 {
         t.forward(longTriangle);
     }
 }
+
+
