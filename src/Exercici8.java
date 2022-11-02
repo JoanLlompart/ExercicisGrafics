@@ -4,12 +4,11 @@ public class Exercici8 {
         //8- Dibuixa el següent gràfic.
         int longTriangle = 100;
         int angleGir = 120;
-        int numTriangles =5;
-        t.setDelay(300);
+        int numTriangles =4;
 
         for (int i = 0;i<= numTriangles;i++) {
             dibuixaTriangle(t, longTriangle, angleGir);
-            espaiEntreTriangles(t, longTriangle, angleGir);
+            //espaiEntreTriangles(t, longTriangle, angleGir);
 
         }
 
@@ -34,6 +33,7 @@ public class Exercici8 {
 
         t.turnLeft(180);
         t.forward(90);
+        //t.turnRight(90);
         t.setPenDown(true);
         //t.markCursor();
 
@@ -43,7 +43,7 @@ public class Exercici8 {
     }
 
     private static void dibuixaTriangle(Turtle t,int longTriangle,int angleGir) {
-        t.turnRight(90);
+        //t.turnRight(90);
         t.forward(longTriangle);
         t.turnRight(angleGir);
         t.forward(longTriangle);
