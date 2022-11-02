@@ -2,7 +2,6 @@ public class Exercici9 {
     public static void main(String[] args) {
         Turtle t =new Turtle(800,600);
         //9- Dibuixa el següent gràfic. Paràmetres: longitud de costat i número de triangles.
-        t.setDelay(300);
 
         int longCostat = 110;
         int numTriangles=9;

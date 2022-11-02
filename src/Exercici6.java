@@ -18,8 +18,5 @@ public class Exercici6 {
         }
 
         t.show();
-
-
-
     }
 }
