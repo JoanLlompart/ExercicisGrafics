@@ -4,7 +4,6 @@ public class Exercici6 {
         //polígon de base.
         //t.setThicknees();
         Turtle t = new Turtle(800, 600);
-        t.setDelay(500);
         int numVoltes = 23;
         int costatsBase =24;
         int logitutBase= 15;
@@ -13,10 +12,7 @@ public class Exercici6 {
             t.forward(logitutBase);
             t.turnRight(45);
             logitutBase = logitutBase + 5;
-
-
         }
-
         t.show();
     }
 }

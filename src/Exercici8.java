@@ -6,25 +6,11 @@ public class Exercici8 {
         int angleGir = 120;
         int numTriangles =4;
 
-        t.setDelay(300);
         for (int i = 0;i<= numTriangles;i++) {
             dibuixaTriangle(t, longTriangle, angleGir);
-            //espaiEntreTriangles(t, longTriangle, angleGir);
-
         }
-
-
-
-
-
-
         t.show();
-
-
-
-
     }
-
     private static void espaiEntreTriangles(Turtle t,int longTriangle,int angleGir) {
         t.setPenDown(false);
         t.turnLeft(angleGir);
@@ -37,13 +23,7 @@ public class Exercici8 {
         t.forward(90);
         t.turnRight(90);
         t.setPenDown(true);
-        //t.markCursor();
-
-
-
-
     }
-
     private static void dibuixaTriangle(Turtle t,int longTriangle,int angleGir) {
         t.turnRight(30);
         t.forward(longTriangle);

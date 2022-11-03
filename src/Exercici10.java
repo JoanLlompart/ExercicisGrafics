@@ -2,36 +2,24 @@ public class Exercici10 {
     public static void main(String[] args) {
         Turtle t = new Turtle(800, 600);
 
-        //10- Dibuixa el següent gràfic.
+        int diametre = (int) (360.0 / Math.PI);
+        t.forward(diametre);
 
-        int circulo = 1;
-        int vegadesCercle = 100;
-        int recta = 200;
+        t.turnRight(90);
+        for (int i = 0; i <90; i++) {
+            t.turnRight(1);
+            t.forward(1);
+        }
 
-        //t.setDelay(50);
+        t.turnRight(90);
+        t.forward(diametre);
 
-        for (int i = 0; i <= 1; i++) {
-            dibuixarCercle(t, circulo, vegadesCercle);
-            dibuixarLineas(t, recta);
-    }
+        t.turnLeft(90);
+        for (int i = 0; i <90; i++) {
+            t.turnLeft(1);
+            t.forward(1);
+        }
         t.show();
     }
 
-    private static void dibuixarLineas(Turtle t,int recta) {
-
-        t.turnLeft(80);
-        t.forward(recta);
-        //t.turnRight(80);
-       //t.forward(recta/2);
-
-
-    }
-
-    private static void dibuixarCercle(Turtle t,int circulo,int vegadesCercle) {
-        for (int c = 0;c<=vegadesCercle;c++) {
-            t.turnLeft(1);
-            t.forward(circulo);
-        }
-
-    }
 }
